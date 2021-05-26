@@ -1,0 +1,26 @@
+Installation Svelte Kit
+#################################
+npm init svelte@next my-app
+cd my-app
+npm install
+npm run dev
+
+svelte-add/postcss: Add PostCSS to your SvelteKit project
+
+PostCSS NanoCSS | A modular minifier
+PostCSS Autoprefixer  | to parse CSS and add vendor prefixes to CSS rules
+(PostCSS Preset Env | PostCSS Preset Env lets you convert modern CSS into something most browsers can understand)
+(PostCSS Stylelint | A mighty, modern linter that helps you avoid errors and enforce conventions in your styles)
+
+
+Installation 
+#################################
+npm i d3
+npm i topojson-client
+npm i proj4
+npm i d3-geo-scale-bar
+
+npm i -g topojson-client
+npm i -g topojson-server
+
+(npm install --save-dev stylelint stylelint-config-standard)
