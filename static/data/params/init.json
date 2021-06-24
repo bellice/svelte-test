@@ -3,15 +3,19 @@
       {
         "id": "000000",
         "key": "solidarite",
+        "key2":"Solidarité",
         "theme":"Déséquilibres démographiques",
         "name": "Part de la population âgée de 65 ans ou plus",
         "year0": "2011",
         "year1": "2016",
-        "challenge": "Adapter les territoires aux challenges du vieillissement de la population."
+        "challenge": "Adapter les territoires aux challenges du vieillissement de la population.",
+        "unit": "%",
+        "source": "Insee RP"
       },
       {
         "id": "000001",
         "key": "solidarite",
+        "key2":"Solidarité",
         "theme": "Accès au logement social",
         "name": "Rapport entre les demandes et les attributions de logements sociaux",
         "year0": "2017",
@@ -21,6 +25,7 @@
       {
         "id": "000010",
         "key": "solidarite",
+        "key2":"Solidarité",
         "theme": "Emploi",
         "name": "Taux de chômage de longue durée",
         "year0": "2016",
@@ -30,6 +35,7 @@
       {
         "id": "000011",
         "key": "solidarite",
+        "key2":"Solidarité",
         "theme": "Intensité de la politique sociale",
         "name": "Part des ménages bénéficiaires du RSA",
         "year0": "2016",
@@ -38,7 +44,8 @@
       },
       {
         "id":"001000",
-        "key": "qualite-de-vie",
+        "key": "condition-de-vie",
+        "key2":"Condition de vie",
         "theme":"Revenu",
         "name": "Revenu disponible médian par UC",
         "year0": "2013",
@@ -47,7 +54,8 @@
       },
       {
         "id":"001001",
-        "key": "qualite-de-vie",
+        "key": "condition-de-vie",
+        "key2":"Condition de vie",
         "theme": "Santé",
         "name": "Taux de mortalité prématurée",
         "year0": "2008",
@@ -56,7 +64,8 @@
       },
       {
         "id":"001010",
-        "key": "qualite-de-vie",
+        "key": "condition-de-vie",
+        "key2":"Condition de vie",
         "theme": "Insertion des jeunes",
         "name": "Part des 15-24 ans ni en emploi, ni en études, ni en formation (NEET)",
         "year0": "2011",
@@ -65,7 +74,8 @@
       },
       {
         "id":"001011",
-        "key": "qualite-de-vie",
+        "key": "condition-de-vie",
+        "key2":"Condition de vie",
         "theme": "Qualité du logement",
         "name": "Taux de suroccupation des résidences principales",
         "year0": "2011",
@@ -74,7 +84,8 @@
       },
       {
         "id":"001100",
-        "key": "qualite-de-vie",
+        "key": "condition-de-vie",
+        "key2":"Condition de vie",
         "theme": "Sécurité",
         "name": "Nombre de cambriolage pour 1000 logements",
         "year0": "2016",
@@ -83,7 +94,8 @@
       },
       {
         "id":"001101",
-        "key": "qualite-de-vie",
+        "key": "condition-de-vie",
+        "key2":"Condition de vie",
         "theme": "Culture",
         "name": "Surface utile des établissements de lecture publique pour 1000 habitants",
         "year0": "",
@@ -93,6 +105,7 @@
       {
         "id":"010000",
         "key": "cooperation",
+        "key2":"Coopération",
         "theme": "Intensité de l'intercommunalité",
         "name": "Coefficient d'intégration fiscale moyen des EPCI",
         "year0": "2011",
@@ -102,6 +115,7 @@
       {
         "id":"010001",
         "key": "cooperation",
+        "key2":"Coopération",
         "theme": "Interdépendance liée à l'emploi",
         "name": "Taux de couverture à l'emploi",
         "year0": "2011",
@@ -111,6 +125,7 @@
       {
         "id":"010010",
         "key": "cooperation",
+        "key2":"Coopération",
         "theme": "Interdépendance économique",
         "name": "Part des établissements dont le siège social se situe hors de la zone",
         "year0": "2017",
@@ -120,6 +135,7 @@
       {
         "id":"010011",
         "key": "cooperation",
+        "key2":"Coopération",
         "theme": "Transferts publics",
         "name": "Part des retraites et des prestations sociales dans le revenu disponible",
         "year0": "2012",
@@ -129,6 +145,7 @@
       {
         "id":"011000",
         "key": "capital-social",
+        "key2":"Capital social",
         "theme": "Investissement social",
         "name": "Nombre d'antennes d'une association employant du personnel",
         "year0": "",
@@ -138,6 +155,7 @@
       {
         "id":"011001",
         "key": "capital-social",
+        "key2":"Capital social",
         "theme": "Participation aux élections",
         "name": "Taux de participation au premier tour des élections présidentielles",
         "year0": "2012",
@@ -147,6 +165,7 @@
       {
         "id":"100000",
         "key": "capacitation",
+        "key2":"Capacitation",
         "theme": "Dynamisme démographique",
         "name": "Taux de croissance de la population",
         "year0": "2006-2011",
@@ -157,6 +176,7 @@
       {
         "id":"100001",
         "key": "capacitation",
+        "key2":"Capacitation",
         "theme": "Dynamisme de l'emploi",
         "name": "Taux de croissance de l'emploi",
         "year0": "2006-2011",
@@ -166,6 +186,7 @@
       {
         "id":"100010",
         "key": "capacitation",
+        "key2":"Capacitation",
         "theme": "Spécialisation fonctionnelle",
         "name": "Part des fonctions productives dans l'emploi",
         "year0": "2011",
@@ -175,6 +196,7 @@
       {
         "id":"100011",
         "key": "capacitation",
+        "key2":"Capacitation",
         "theme": "Attractivité économique",
         "name": "Taux de création d'entreprises",
         "year0": "2015-2016",
@@ -184,6 +206,7 @@
       {
         "id":"100100",
         "key": "capacitation",
+        "key2":"Capacitation",
         "theme": "Couverture numérique",
         "name": "Part de la surface courverte en 4G par a minima deux opérateurs",
         "year0": "Juil. 2017",
@@ -193,6 +216,7 @@
       {
         "id":"100101",
         "key": "capacitation",
+        "key2":"Capacitation",
         "theme": "Accès aux services",
         "name": "Temps moyen d'accès au panier de services de la vie courante",
         "year0": "",
@@ -202,6 +226,7 @@
       {
         "id":"100110",
         "key": "capacitation",
+        "key2":"Capacitation",
         "theme": "Qualité de formation de la main d'oeuvre",
         "name": "Part des 30-34 ans diplômé du supérieur",
         "year0": "2011",
@@ -211,6 +236,7 @@
       {
         "id":"101000",
         "key": "transition-ecologique",
+        "key2":"Transition écologique",
         "theme": "Attractivité résidentielle",
         "name": "Taux d'évolution annuel de la population",
         "year0": "2006-2011",
@@ -220,6 +246,7 @@
       {
         "id":"101001",
         "key": "transition-ecologique",
+        "key2":"Transition écologique",
         "theme": "Préservation de l'environnement",
         "name": "Taux de croissance annuel moyen de l'artificialisation des sols",
         "year0": "2009-2013",

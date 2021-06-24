@@ -16,6 +16,9 @@ PostCSS Autoprefixer  | to parse CSS and add vendor prefixes to CSS rules
 Installation 
 #################################
 npm i d3
+
+npm install --save-dev d3
+
 npm i topojson-client
 npm i proj4
 npm i d3-geo-scale-bar

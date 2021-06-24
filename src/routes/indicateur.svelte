@@ -23,7 +23,7 @@
     let json = await res.json();
     return json;
   }
-  const promise = fetchjson();
+  const promiseInit = fetchjson();
 
   let keyFactor = "all"
 
@@ -32,12 +32,7 @@
     return keyFactor
   }
 
-  function click(e){
-	{item.name}
-	  console.log(e)
-
-  }
-
+ 
 </script>
 
 <svelte:head>
@@ -60,8 +55,8 @@
 		class:selected="{keyFactor === "all" ? "selected": ""}">Voir tout</button>
 <button on:click={() => handleClick("solidarite")}
 		class:selected="{keyFactor === "solidarite" ? "selected": ""}">Solidarité</button>
-<button on:click={() => handleClick("qualite-de-vie")}
-		class:selected="{keyFactor === "qualite-de-vie" ? "selected": ""}">Qualité de vie</button>
+<button on:click={() => handleClick("condition-de-vie")}
+		class:selected="{keyFactor === "condition-de-vie" ? "selected": ""}">Qualité de vie</button>
 <button on:click={() => handleClick("cooperation")}
 		class:selected="{keyFactor === "cooperation" ? "selected": ""}">Coopération</button>
 <button on:click={() => handleClick("capital-social")}
@@ -76,7 +71,7 @@
 
 <hr> 
 <div class="container-card">
-  {#await promise}
+  {#await promiseInit}
  <!--  <p>Loading...</p> -->
   {:then json}
 

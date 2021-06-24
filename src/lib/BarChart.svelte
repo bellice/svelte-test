@@ -1,30 +1,75 @@
 <script>
+  import { scaleLinear, scaleBand, max, ascending, descending, extent } from "d3"; 
+  import Axis from "$lib/Axis.svelte";
+
+  //These won't change
+  let width;
+  const height = 560;
+  const margin = 40;
+
+
+
+  export let data;
+
+  //Params BarChart
+
+  //Coerce numeric
+    data.forEach(function(d) {
+    d.value0 = +d.value0;
+    d.value1 = +d.value1;
+  }); 
+
+  //Descending
+  data.sort(function(a,b){
+              return descending(a.value1,b.value1);
+  })
+    
+ /*    data
+    .get(selectedCounty)
+    .sort((a, b) => ascending(a[1], b[1])); */
+
+    //Scale
+   let xmin = 0
+   let xmax = Math.max(max(data, function(d){return d.value0}),max(data, function (d){return d.value1}));
+
+    //Scale x and y
+    $: x = scaleLinear()
+      .domain(extent([xmin, xmax])).nice()
+      .rangeRound([margin+80, width-margin]);
+
+    $: y = scaleBand()
+      .domain(data.map(d => d.libgeo2))
+      .rangeRound([margin, height-margin])
+      .padding(.1); 
 
 
 </script>
 
-<div>
-    Intégration de la bar chart
+
+  <div class='scatter-plot' bind:clientWidth={width}>
+    <svg width={width} height={height}>
+      <Axis {width} {height} {margin} scale={x} position='top' />
+			<Axis {width} {height} {margin} scale={y} position='left' />
+      {#each data as d}
+      <g>
+        <rect width={Math.abs(x(d.value1) - x(0))}
+              x={x(Math.min(0, d.value1))}
+              height={y.bandwidth()}
+              y= {y(d.libgeo2)}/> 
+      </g>
+    {/each}
+    </svg>
 </div>
-
-<svg
-            width="600"
-            height="600"
-            viewBox="0 0 600 600"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g transform="translate(300,300)">
-              <path
-                d="M61.1,-107.2C86.9,-78.5,120.8,-74.6,126.6,-58.7C132.5,-42.9,110.3,-15.1,114.2,22.4C118.2,60,148.3,107.3,139.8,126.3C131.3,145.2,84.2,136,49.1,128.7C13.9,121.5,-9.4,116.4,-40.9,117.2C-72.4,118.1,-112.2,124.9,-151.8,112.8C-191.3,100.7,-230.8,69.8,-226.2,38.4C-221.7,6.9,-173.2,-25,-153.9,-71.6C-134.6,-118.1,-144.6,-179.4,-123.9,-210.4C-103.1,-241.4,-51.5,-242.2,-16.9,-215.8C17.7,-189.5,35.3,-136,61.1,-107.2Z"
-                fill="#fcba03"
-              />
-            </g>
-          </svg>
-
 
 
 
 <style>
+  rect {
+    fill: #0da070;
+  }
 
+text{
+  font-size: 30;
+}
 
 </style>

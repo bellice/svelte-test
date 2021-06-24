@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
   import { onMount } from "svelte";
 
- let current = $page.path;
+ $: current = $page.path;
 
 onMount(async () =>{
 
@@ -19,6 +19,8 @@ window.onscroll = function() {
   prevScrollpos = currentScrollPos;
 }
 })
+
+
 
 </script>
 
@@ -38,7 +40,7 @@ window.onscroll = function() {
     </nav>
 </header>
 
-<style>
+<style style lang="postcss">
 
   ul{
       display: flex;
@@ -67,7 +69,7 @@ window.onscroll = function() {
 
   a{
       position: relative;
-      padding-bottom: .15em;
+      padding-bottom: 2px;
   }
 
   /*Hover effect underline*/
@@ -100,7 +102,7 @@ window.onscroll = function() {
 
   .selected {
       color: #293173;
-      border-bottom: 2px solid #293173;
+      border-bottom: 3px solid #293173;
     }
 
 

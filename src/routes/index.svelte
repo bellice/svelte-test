@@ -24,8 +24,9 @@
 </p>
 
 <div class="container-button">
+
 	<a sveltekit:prefetch href="/indicateur">
-<button type="button">Accéder aux indicateurs</button>
+		<button>Accéder aux indicateurs</button>
 </a>
 </div>
 
@@ -42,9 +43,8 @@ button{
 		border-radius: 10px;
 		background: #fff2cf;
 		cursor: pointer;
-		pointer-events: none;
-		
 	}
+
 
 .container-button{
 	display: flex;
@@ -52,7 +52,7 @@ button{
 	margin-top: 2em;
 }
 
-  button:hover{
+button:hover{
     background: #ffd463;
   }
 

@@ -37,3 +37,11 @@ p{
     line-height: clamp(1.3em, calc(1.3em + .3vw), 1.8em);
 }
 
+svg{
+    display: block;
+    margin: auto;
+}
+
+text{
+    font-size: 12px;
+}
