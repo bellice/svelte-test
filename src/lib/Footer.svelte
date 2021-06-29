@@ -3,15 +3,22 @@
 </script>
 
 <footer>
-    <div>
+    <div class=c-footer>
         <a href="https://agence-cohesion-territoires.gouv.fr/">
-            <img src="../static/img/logo-anct.svg" alt="ANCT - Agence nationale de la cohésion des territoires">
+            <div class="logo"></div>
+<!--             <img src="../static/img/logo-anct.svg" alt="ANCT - Agence nationale de la cohésion des territoires">   -->
         </a>
     </div>
 </footer>
 
 
 <style>
+
+ .logo{
+      background: url("../static/img/logo-anct.svg") left no-repeat;
+     background-size: 150px;
+     height: 70px;
+} 
 
 footer{
   background: url("../static/img/trame-small-blue.svg") top no-repeat;
@@ -25,7 +32,7 @@ div p{
     font-size: 12px;
 }
 
-div{
+.c-footer{
     background: #293173;
     padding: 1.5em 1em;
 }

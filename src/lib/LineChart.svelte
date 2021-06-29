@@ -9,7 +9,7 @@
 
   //These won't change
   let width=0;
-  const height = 380;
+  const height = 280;
   const margin = 40;
 
 
