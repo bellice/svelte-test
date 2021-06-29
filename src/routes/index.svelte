@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>Accueil</title>
 </svelte:head>
 
 <div class="main">
