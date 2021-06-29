@@ -13,7 +13,7 @@
   let dDissolve;
   let dScaleBar;
 
-  let width;
+  let width=0;
   const height = "460";
 
 
@@ -112,8 +112,6 @@
 
 <style style lang="postcss">
   svg {
-    width: 100%;
-    height: 100%;
     stroke-linecap: round;
     stroke-linejoin: round;
     user-select: none;

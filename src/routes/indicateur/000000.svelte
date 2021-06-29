@@ -21,6 +21,7 @@
 	import InformationSection from "$lib/InformationSection.svelte";
 	import InputYear from "$lib/InputYear.svelte";
 	import Speedometer from "svelte-speedometer"
+	import InputSort from "$lib/InputSort.svelte";
 
 </script>
 
@@ -53,6 +54,45 @@
 	//Params BarChart
 	let barChartData;
 csv("../static/data/csv/000000-reg.csv").then(data => barChartData = data)
+
+	let value = "value1";
+	let sort = "desc";
+	let yearSelectedBarChart= "";
+	let sortSelectedBarChart="";
+
+	$: if (yearSelectedBarChart == "year0"){
+			value = "value0"
+		}
+	$: if (yearSelectedBarChart == "year1"){
+			value = "value1"
+		}
+
+	$: if (sortSelectedBarChart == "sortAscending"){
+			sort = "asc"
+		}
+	$: if (sortSelectedBarChart == "sortDescending"){
+			sort = "desc"
+		}
+
+
+		//Params Map
+		let yearSelectedMap;
+
+		
+
+	//Params LineChart
+	let lineChartData;
+	csv("../static/data/csv/000000-grille.csv").then(data => lineChartData = data)
+
+	let yearSelectedLineChart;
+	
+	$: if (yearSelectedLineChart == "year0"){
+		value = "value0"
+	}
+	$: if (yearSelectedLineChart == "year1"){
+		value = "value1"
+	}
+
 
 
 	</script>
@@ -130,13 +170,6 @@ csv("../static/data/csv/000000-reg.csv").then(data => barChartData = data)
 
 </div>
 
-{/each}
-
-{:catch error}
-<p style="color: red">{error.message}</p> 
-
-	{/await}
-
 
 	<h2>Enjeu</h2>
 <p>Adapter les territoires aux enjeux du vieillissement de la population.</p>
@@ -195,12 +228,43 @@ encore en forte croissance et la part de personnes âgées reste faible (respect
 leur nombre est désormais en forte augmentation. L’anticipation du vieillissement de la population dans
 ces territoires constitue un défi majeur.</p>
 	</div>
+
+
+
+	{#if barChartData}
 	<div class= "viz">
-		<BarChart data = {barChartData}/>
+		<p class="name-indicateur">{item.name}</p>
+		<InputYear on:yearSelected={(e) =>  yearSelectedBarChart = e.detail}>
+			<span slot="maille">Par région</span>
+	
+		<svelte:fragment slot="year0">
+			{#if item.year0 != ""}
+			<span class="year-selected">{item.year0}</span>
+			{/if}
+		</svelte:fragment>
+	
+		<svelte:fragment slot="year1">
+			{#if item.year1 != ""}
+			<span class="year-selected">{item.year1}</span>
+			{/if}
+		</svelte:fragment>
+	
+			</InputYear>
+
+			<InputSort on:sortSelected={(e) =>  sortSelectedBarChart = e.detail}>
+				<span class="sort-selected" slot="asc">Ascendant</span>
+				<span class="sort-selected" slot="desc">Descendant</span>
+			</InputSort>
+
+
+
+ 		<BarChart data = {barChartData} value={value} sort={sort}/>
 	</div>
+	{/if}
 
 </section>
 </ToggleSection>
+
 
 
 <ToggleSection
@@ -225,6 +289,24 @@ celles des grands centres urbains comptent la population parmi la plus jeune de 
 		
 	</div>
 	<div class= "viz">
+		<p class="name-indicateur">{item.name}</p>
+		<InputYear on:yearSelected={(e) =>  yearSelectedMap = e.detail}>
+			<span slot="maille">Par intercommunalité</span>
+	
+		<svelte:fragment slot="year0">
+			{#if item.year0 != ""}
+			<span class="year-selected">{item.year0}</span>
+			{/if}
+		</svelte:fragment>
+	
+		<svelte:fragment slot="year1">
+			{#if item.year1 != ""}
+			<span class="year-selected">{item.year1}</span>
+			{/if}
+		</svelte:fragment>
+	
+			</InputYear>
+
 		<Map/>
 	</div>
 </section>
@@ -245,13 +327,40 @@ moins : en cinq ans, la part des 65 ans et plus (15 %) s’est accrue de seuleme
 alors que les territoires « intermédiaires et peu denses » ont vu leur part (20,4 %) augmenter de 2,4 points de pourcentage.
 		</p>
 	</div>
+
+	{#if lineChartData}
 		<div class="viz">
-			<LineChart/>
+		<p class="name-indicateur">{item.name}</p>
+		<InputYear on:yearSelected={(e) =>  yearSelectedLineChart = e.detail}>
+			<span slot="maille">Par catégorie de communes</span>
+	
+		<svelte:fragment slot="year0">
+			{#if item.year0 != ""}
+			<span class="year-selected">{item.year0}</span>
+			{/if}
+		</svelte:fragment>
+	
+		<svelte:fragment slot="year1">
+			{#if item.year1 != ""}
+			<span class="year-selected">{item.year1}</span>
+			{/if}
+		</svelte:fragment>
+	
+			</InputYear>
+
+			<LineChart data= {lineChartData} value={value}/>
 	</div>
+	{/if}
+
 </section>
 </ToggleSection>
 
+{/each}
 
+{:catch error}
+<p style="color: red">{error.message}</p> 
+
+	{/await}
 
 
 
@@ -273,7 +382,6 @@ alors que les territoires « intermédiaires et peu denses » ont vu leur part (
 		justify-items: stretch;
 		column-gap: 2rem;
 		row-gap: 1.5rem;
-		margin:auto;
 		margin-top: 1em;
 		margin-bottom: 1em;
 		
@@ -287,7 +395,7 @@ alors que les territoires « intermédiaires et peu denses » ont vu leur part (
 
 
 #section{
-	widows: 100%;
+	width: 100%;
    display: grid;
    grid-gap: 1.7em;
 	 margin-top: 1em;
@@ -311,18 +419,20 @@ alors que les territoires « intermédiaires et peu denses » ont vu leur part (
 	.viz{
 		position: sticky;
 		top: 10vh;
-		width: 100%;
-/* 		max-height: 638px; */
+		width: 100%; 
 		min-height: 452px;
 		min-width: 480px;
 		max-width: inherit;
-/* 		height: 75vh; */
-		border: solid 1px;
+ 		height: 600px;
 	}
 
 
-	h2{
+	h2, .name-indicateur{
 	 color: #365d87;
+}
+
+.name-indicateur{
+	font-weight: 600;
 }
 
 .focus{
@@ -330,7 +440,7 @@ alors que les territoires « intermédiaires et peu denses » ont vu leur part (
 	margin: 1em 0;
 }
 
-.year-selected{
+.year-selected, .sort-selected{
     font-size: clamp(16px, calc(16px + .3vw), 21px);
 }
 

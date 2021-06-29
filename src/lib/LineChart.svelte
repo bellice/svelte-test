@@ -1,30 +1,84 @@
   <script>
+    import { scaleLinear, scaleBand, max, ascending, descending, extent } from "d3"; 
+    import Axis from "$lib/Axis.svelte";
 
 
-</script>
 
-<div>
-    Intégration de la line chart
+    export let data;
+    export let value;
+
+  //These won't change
+  let width=0;
+  const height = 380;
+  const margin = 40;
+
+
+
+  //Coerce numeric
+  data.forEach(function(d) {
+    d.value0 = +d.value0;
+    d.value1 = +d.value1;
+  }); 
+
+    //Scale
+    $: xmin = 0
+    $: xmax = Math.max(max(data, function(d){return d.value0}),max(data, function (d){return d.value1}));
+
+
+    //Scale x and y
+    $: x = scaleLinear()
+      .domain(extent([xmin, xmax])).nice()
+      .rangeRound([margin+80, width-margin]);
+
+     $: y = scaleBand()
+      .domain(data.map(d => d.lib_grille))
+      .rangeRound([margin, height-margin])
+      .padding(1); 
+
+
+  </script>
+
+
+
+
+
+<div class='scatter-plot' bind:clientWidth={width}>
+  <svg width={width} height={height}>
+    <Axis {width} {height} {margin} scale={x} position='top' />
+    <Axis {width} {height} {margin} scale={y} position='left' />
+
+    {#each data as d}
+    <g>
+      <circle
+      cx={x(d[value])}
+      cy= {y(d.lib_grille)}
+      r="10"
+      />
+    </g>
+    <g>
+      <text class="value"
+            x={x(d[value])+15}
+            y= {y(d.lib_grille)+3}>
+            {new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 5 }).format(d[value])}
+      </text>
+  </g>
+  {/each}
+
+  </svg>
 </div>
 
-<svg
-            width="600"
-            height="600"
-            viewBox="0 0 600 600"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g transform="translate(300,300)">
-              <path
-                d="M61.1,-107.2C86.9,-78.5,120.8,-74.6,126.6,-58.7C132.5,-42.9,110.3,-15.1,114.2,22.4C118.2,60,148.3,107.3,139.8,126.3C131.3,145.2,84.2,136,49.1,128.7C13.9,121.5,-9.4,116.4,-40.9,117.2C-72.4,118.1,-112.2,124.9,-151.8,112.8C-191.3,100.7,-230.8,69.8,-226.2,38.4C-221.7,6.9,-173.2,-25,-153.9,-71.6C-134.6,-118.1,-144.6,-179.4,-123.9,-210.4C-103.1,-241.4,-51.5,-242.2,-16.9,-215.8C17.7,-189.5,35.3,-136,61.1,-107.2Z"
-                fill="#9aaddf"
-              />
-            </g>
-          </svg>
-
-
-
-
 <style>
+circle {
+  fill: #0da070;
+}
 
+text{
+font-size: 30;
+font-weight: 600;
+}
+
+.value{
+text-anchor: start;
+}
 
 </style>
