@@ -15,13 +15,13 @@
 <style>
 
  .logo{
-      background: url("../static/img/logo-anct.svg") left no-repeat;
+      background: url("/img/logo-anct.svg") left no-repeat;
      background-size: 150px;
      height: 70px;
 } 
 
 footer{
-  background: url("../static/img/trame-small-blue.svg") top no-repeat;
+  background: url("/img/trame-small-blue.svg") top no-repeat;
   padding-top: 2em;
   margin-top: 5em;
 }

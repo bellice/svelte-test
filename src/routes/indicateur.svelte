@@ -19,7 +19,7 @@
 <script>
 
   async function fetchjson() {
-    let res = await fetch("../static/data/params/init.json");
+    let res = await fetch("/data/params/init.json");
     let json = await res.json();
     return json;
   }

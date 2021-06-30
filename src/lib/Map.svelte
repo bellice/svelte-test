@@ -40,10 +40,10 @@
   onMount(async () =>{ //when the component is mounted, here where we will fetch the json data we need to draw the map
 
     const [focusLayer, regStroke, dromSep, borderCountry] = await Promise.all([
-      fetch("../static/data/layer/epci2020.topojson"),
-      fetch("../static/data/layer/reg2020.topojson"),
-      fetch("../static/data/layer/drom-sep.topojson"),
-      fetch("../static/data/layer/border-country.topojson")
+      fetch("/data/layer/epci2020.topojson"),
+      fetch("/data/layer/reg2020.topojson"),
+      fetch("/data/layer/drom-sep.topojson"),
+      fetch("/data/layer/border-country.topojson")
   ])
 		//Focus layer
     const json = await focusLayer.json();

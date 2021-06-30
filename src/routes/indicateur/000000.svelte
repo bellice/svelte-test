@@ -29,7 +29,7 @@
 
 
   async function fetchjson() {
-    let res = await fetch("../static/data/params/init.json");
+    let res = await fetch("/data/params/init.json");
     let json = await res.json();
     return json;
   }
@@ -53,7 +53,7 @@
 
 	//Params BarChart
 	let barChartData;
-csv("../static/data/csv/000000-reg.csv").then(data => barChartData = data)
+csv("/data/csv/000000-reg.csv").then(data => barChartData = data)
 
 	let value = "value1";
 	let sort = "desc";
@@ -82,7 +82,7 @@ csv("../static/data/csv/000000-reg.csv").then(data => barChartData = data)
 
 	//Params LineChart
 	let lineChartData;
-	csv("../static/data/csv/000000-grille.csv").then(data => lineChartData = data)
+	csv("/data/csv/000000-grille.csv").then(data => lineChartData = data)
 
 	let yearSelectedLineChart;
 	
