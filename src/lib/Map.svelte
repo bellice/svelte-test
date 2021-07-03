@@ -1,5 +1,5 @@
 <script>
-  import {geoPath, geoProjection }  from "d3";
+  import {geoPath, geoProjection }  from "d3-geo";
   import { geoScaleBar, geoScaleKilometers } from "d3-geo-scale-bar";
   import { onMount } from "svelte";
   import { feature, merge } from "topojson-client";

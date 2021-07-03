@@ -1,10 +1,11 @@
 <script context="module">
 	import { browser, dev } from '$app/env';
 	import ItemCard from '$lib/ItemCard.svelte';
-
+	import { page } from '$app/stores';
+	
 	// we don't need any JS on this page, though we'll load
 	// it in dev so that we get hot module replacement...
-	export const hydrate = dev;
+	export const hydrate = true;
 
 	// ...but if the client-side router is already loaded
 	// (i.e. we came here from elsewhere in the app), use it
@@ -76,10 +77,13 @@
   {:then json}
 
 
- 
+
  {#if keyFactor == "all"}
  	{#each json.items as item}
-	 <a href={"indicateur/"+item.id}>
+
+	 <a
+	 sveltekit:prefetch
+	 href={$page.path + "/" + item.id + "/"}>
 	 <ItemCard>
 		 <span slot="name">{item.name}</span>
 		 <span slot="year1">{item.year1}</span>

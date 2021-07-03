@@ -1,5 +1,6 @@
 <script>
-	import { axisBottom, axisLeft, axisTop, select } from 'd3';
+	import { axisBottom, axisLeft, axisTop } from "d3-axis";
+	import { select } from "d3-selection";
 
 	export let width;
 	export let height;

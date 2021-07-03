@@ -1,5 +1,6 @@
 <script>
-  import { scaleLinear, scaleBand, max, ascending, descending, extent } from "d3"; 
+  import { scaleLinear, scaleBand } from "d3-scale";
+  import { max, ascending, descending, extent } from "d3-array"
   import Axis from "$lib/Axis.svelte";
 
 
