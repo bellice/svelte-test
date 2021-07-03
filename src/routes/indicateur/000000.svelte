@@ -14,7 +14,7 @@
 	export const prerender = true;
 
 	import Map from "$lib/Map.svelte";
-	import BarChart from "$lib/BarChart.svelte"
+	import BarChart from "$lib/BarChart.svelte";
 	import LineChart from "$lib/LineChart.svelte";
 	import ToggleSection from "$lib/ToggleSection.svelte";
 	import HeaderSection from '$lib/HeaderSection.svelte';
@@ -31,8 +31,15 @@
   async function fetchjson() {
     let res = await fetch("/data/params/init.json");
     let json = await res.json();
-    return json;
-  }
+
+		if (res.ok) {
+			return json;
+		} else {
+			throw new Error(json);
+		}
+	}
+
+
   const promiseInit = fetchjson();
 
 	let id="000000";

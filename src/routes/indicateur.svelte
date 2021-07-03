@@ -22,8 +22,15 @@
   async function fetchjson() {
     let res = await fetch("/data/params/init.json");
     let json = await res.json();
-    return json;
-  }
+
+		if (res.ok) {
+			return json;
+		} else {
+			throw new Error(json);
+		}
+	}
+
+
   const promiseInit = fetchjson();
 
   let keyFactor = "all"
