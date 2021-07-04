@@ -91,7 +91,7 @@
 
 	 <a
 	 sveltekit:prefetch
-	 href={"indicateur/" + item.id + "/"}>
+	 href={$page.path + "/" + item.id + "/"}>
 	 <ItemCard>
 		 <span slot="name">{item.name}</span>
 		 <span slot="year1">{item.year1}</span>
@@ -101,7 +101,7 @@
 	{/each} 
  {:else}
   {#each json.items.filter((e)=>{ return e.key == keyFactor}) as item}
-  <a href={"indicateur/"+item.id}>
+  <a href={$page.path+"/"+item.id}>
 		<ItemCard>
 			<span slot="name">{item.name}</span>
 			<span slot="year1">{item.year1}</span>
