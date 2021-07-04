@@ -107,6 +107,7 @@ csv("/data/csv/000000-reg.csv").then(data => barChartData = data)
 
 
 <svelte:head>
+	<meta name="description" content="Le baromètre de la cohésion des territoires, analyse de l'indicateur part de la population âgée de 65 ans ou plus">
 	<title>Part de la population âgée de 65 ans ou plus - Le baromètre de la cohésion des territoires</title>
 </svelte:head>
 

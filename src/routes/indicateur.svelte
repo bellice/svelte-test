@@ -44,6 +44,7 @@
 </script>
 
 <svelte:head>
+	<meta name="description" content="Le baromètre de la cohésion des territoires, liste des indicateurs">
 	<title>Indicateur</title>
 </svelte:head>
 
@@ -90,7 +91,7 @@
 
 	 <a
 	 sveltekit:prefetch
-	 href={$page.path + "/" + item.id + "/"}>
+	 href={"indicateur/" + item.id + "/"}>
 	 <ItemCard>
 		 <span slot="name">{item.name}</span>
 		 <span slot="year1">{item.year1}</span>

@@ -17,6 +17,7 @@
 
 
 <svelte:head>
+	<meta name="description" content="Le baromètre de la cohésion des territoires, à propos">
 	<title>À propos</title>
 </svelte:head>
 
